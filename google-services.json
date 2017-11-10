@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "941422015991",
+    "firebase_url": "https://pushmultiofertas.firebaseio.com",
+    "project_id": "pushmultiofertas",
+    "storage_bucket": "pushmultiofertas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941422015991:android:92184deee6e490a4",
+        "android_client_info": {
+          "package_name": "com.multi.ofertas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941422015991-n59vulahgf249fk21o8b8vv93au53hok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3BHWzU4iemVm-X885FLsaMgqI5d8svqg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,13 @@
+<ion-menu [content]="NAV">
+    <ion-content class="side-menu-gradient">
+        <img src="/assets/imgs/menutopo.png" alt="">
+        <ion-list >
+            <button class="side-menu-item" menuClose ion-item *ngFor="let page of pages" (click)="goToPage(page.component)">
+            <ion-icon  item-left name="{{ page.icon }}"></ion-icon>
+           {{ page.titulo}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav #NAV [root]="rootPage"></ion-nav>

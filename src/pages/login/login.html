@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Faça seu Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="home">
+  
+  <ion-item>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="email" [(ngModel)]='user.email'></ion-input>
+</ion-item>
+
+<ion-item>
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]='user.senha'></ion-input>
+</ion-item>  
+
+<button ion-button (click)="logar(use)" color="dark">Logar</button>
+<button ion-button (click)="registrar()" color="danger">Registrar</button>
+</ion-content>
