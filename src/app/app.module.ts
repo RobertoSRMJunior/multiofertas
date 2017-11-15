@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -9,6 +10,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Push } from '@ionic-native/push';
 
 import { MyApp } from './app.component';
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { GeocoderProvider } from '../providers/geocoder/geocoder';
 
 
 
@@ -20,6 +23,7 @@ import { MyApp } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule
   ],
@@ -32,7 +36,9 @@ import { MyApp } from './app.component';
     StatusBar,
     SplashScreen,
     Push,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    NativeGeocoder,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GeocoderProvider
   ]
 })
 export class AppModule {}

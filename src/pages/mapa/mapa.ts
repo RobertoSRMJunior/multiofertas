@@ -1,5 +1,12 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component,ViewChild, ElementRef } from '@angular/core';
+import { IonicPage,NavController, Platform } from 'ionic-angular';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+
+import { GeocoderProvider } from '../../providers/geocoder/geocoder';
 
 declare var google:any;
 
@@ -10,36 +17,209 @@ declare var google:any;
 })
 export class MapaPage {
 
-  @ViewChild('map') mapRef:ElementRef;
-  constructor(public navCtrl: NavController,
-     public navParams: NavParams,) {
+   /**
+    * Define a FormGroup object for the forwardGeocoding form
+    */
+   public form                   : FormGroup;
+   
 
-    }
-    
-    ionViewDidLoad() {
-      this.DisplayMap();
-    }
 
-    DisplayMap() {
+   /**
+    * Define a FormGroup object for the reverseGeocoding form
+    */
+   public geoForm                : FormGroup;
 
-      const location = new google.maps.LatLng(-20.417194,-49.970325);
 
-      const options = {
-        center:location,
-        zoom:10,
-        streetViewControl:false,
-        mapTypeId:'hybrid'
-      };
 
-      const map = new google.maps.Map(this.mapRef.nativeElement,options);
+   /**
+    * Define a boolean property to reference whether geocoding has been 
+    * performed or not
+    */
+   public geocoded               : boolean;
 
-      this.addMarker(location,map);
-    }
 
-    addMarker(position,map) {
-      return new google.maps.Marker({
-        position,
-        map
+
+   /**
+    * Define a string value to handle returned geocoding results
+    */   
+   public results                : string;
+
+
+
+   /**
+    * Define the initial text value for the form switching button in the
+    * HTML template
+    */   
+   public filter                 : string      = 'Search by Coordinates';
+   
+
+
+   /**
+    * Define a boolean property to determine that the forwardGeocoding
+    * form is displayed first
+    */   
+   public displayForward         : boolean     = true;
+   
+
+
+   /**
+    * Define a boolean property to determine that the reverseGeocoding
+    * form is not to be displayed first
+    */   
+   public displayReverse         : boolean     = false;
+
+   @ViewChild('map') mapRef:ElementRef;
+
+   constructor(public navCtrl    : NavController,
+               public _GEOCODE   : GeocoderProvider,
+               private _FB       : FormBuilder,
+               private _PLATFORM : Platform) 
+   {
+
+
+      // Define the validation rules for handling the
+      // address submission from the forward geocoding form
+      this.form       = _FB.group({
+         'keyword'        : ['', Validators.required]
       });
-    }
+
+      
+      // Define the validation rules for handling the 
+      // latitude/longitude submissions from the reverse 
+      // geocoding form
+      this.geoForm    = _FB.group({
+         'latitude'        : ['', Validators.required],
+         'longitude'       : ['', Validators.required]
+      });
+
+   }
+
+
+
+   /**
+     *
+     * Determine whether the forwardGeocoding or
+     * reverseGeocoding form will be displayed
+     *
+     * @public
+     * @method filterForm
+     * @return {none}
+     *
+     */   
+   filterForm()
+   {
+      if(this.displayForward)
+      {
+         this.filter      		 = 'Search by keyword';
+         this.displayReverse     = true;
+         this.displayForward     = false;
+      }
+      else
+      {
+         this.filter             = 'Search by Co-ordinates';
+         this.displayReverse     = false;
+         this.displayForward     = true;
+      }
+   }
+
+
+
+   
+   /**ESSE É PROCURANDO POR COORDENADA
+     *
+     * Retrieve latitude/longitude coordinate values from HTML form, 
+     * pass these into the reverseGeocode method of the Geocoder service 
+     * and handle the results accordingly
+     *
+     * @public
+     * @method performReverseGeocoding
+     * @return {none}
+     *
+     */   
+   performReverseGeocoding(val)
+   {
+      this._PLATFORM.ready()
+      .then((data : any) =>
+      {
+         let latitude     : any = parseFloat(this.geoForm.controls["latitude"].value),
+             longitude    : any = parseFloat(this.geoForm.controls["longitude"].value);
+
+         this._GEOCODE.reverseGeocode(latitude, longitude)
+         .then((data : any) =>
+         {
+            this.geocoded      = true;
+            this.results       = data; 
+            
+         })
+         .catch((error : any)=>
+         {
+            this.geocoded      = true;
+            this.results       = error.message;
+         });
+      });
+   }
+
+
+
+
+   /**ESSE É PROCURANDO POR ENDEREÇO
+     *
+     * Retrieve address location submitted from HTML form, 
+     * pass these into the forwardGeocode method of the Geocoder service 
+     * and handle returned latitude/longitude coordinate values accordingly
+     *
+     * @public
+     * @method performForwardGeocoding
+     * @return {none}
+     *
+     */   
+   performForwardGeocoding(val)
+   {
+      this._PLATFORM.ready()
+      .then((data : any) =>
+      {
+         let keyword : string = this.form.controls["keyword"].value;
+         this._GEOCODE.forwardGeocode(keyword)
+         .then((data : any) =>
+         {
+            this.geocoded      = true;
+            this.results       = data; 
+            let location = new google.maps.LatLng(data.latitude,data.longitude);
+         })
+         .catch((error : any)=>
+         {
+            this.geocoded      = true;
+            this.results       = error.message;
+         });
+      });
+      
+          //this.addMarker(location,map);
+   }
+
+   ionViewDidLoad() {
+    this.DisplayMap();
+  }
+
+  DisplayMap() {
+
+    let location = new google.maps.LatLng(-20.417194,-49.970325);
+
+    const options = {
+      center:location,
+      zoom:10,
+      streetViewControl:false,
+      mapTypeId:'hybrid'
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+
+    //this.addMarker(location,map);
+  }
+
+  addMarker(position,map) {
+    return new google.maps.Marker({
+      position,
+      map
+    });
+  }
 }
