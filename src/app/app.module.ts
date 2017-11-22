@@ -11,9 +11,6 @@ import { Push } from '@ionic-native/push';
 
 import { MyApp } from './app.component';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
-import { GeocoderProvider } from '../providers/geocoder/geocoder';
-
-
 
 @NgModule({
   declarations: [
@@ -37,8 +34,7 @@ import { GeocoderProvider } from '../providers/geocoder/geocoder';
     SplashScreen,
     Push,
     NativeGeocoder,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GeocoderProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

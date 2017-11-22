@@ -4,13 +4,13 @@
       <button ion-button menuToggle style="color: white">
           <ion-icon name="menu"></ion-icon>
         </button>
-    <div class="teste"><ion-title>Home</ion-title></div>
+    <div class="teste"><ion-title>Categorias</ion-title></div>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class="home">
+<ion-content padding class="homebg">
           <ion-grid>
             <ion-row>
               <ion-col col-3>
@@ -22,28 +22,31 @@
                     </ion-card>
               </ion-col>
               <ion-col col-3 offset-3>
-                  <ion-card class="card1 icon2">
-                      <ion-card-content>
-                         <!-- <ion-img class="transparente tamanho2 " src="./assets/imgs/super.png"></ion-img> -->
-                      </ion-card-content>
-                    </ion-card>
-              </ion-col>
+                <ion-card class="card1 icon8" (click)="gotoPostosPage()">
+                    <ion-card-content>
+                       <!-- <ion-img class="transparente tamanho2 " src="./assets/imgs/super.png"></ion-img> -->
+                    </ion-card-content>
+                    <div class="texto">Postos de Combustível</div>
+                  </ion-card>
+            </ion-col>
             </ion-row>
           </ion-grid>
           <ion-grid>
             <ion-row>
               <ion-col col-3>
-                  <ion-card class="card1 icon3">
-                      <ion-card-content>
+                  <ion-card class="card1 icon3" (click)="gotoRestaurantesPage()">
+                      <ion-card-content  >
                          <!-- <ion-img class="transparente tamanho " src="./assets/imgs/destaque.png"></ion-img> -->
                       </ion-card-content>
+                      <div class="textor">Restaurantes </div>
                     </ion-card>
               </ion-col>
-              <ion-col col-3 offset-3>
+              <ion-col col-3 offset-3 (click)="gotoBaresPage()">
                   <ion-card class="card1 icon4">
                       <ion-card-content>
                          <!-- <ion-img class="transparente tamanho2 " src="./assets/imgs/super.png"></ion-img> -->
                       </ion-card-content>
+                      <div class="texto">Bares</div>
                     </ion-card>
               </ion-col>
             </ion-row>
@@ -51,10 +54,11 @@
           <ion-grid>
             <ion-row>
               <ion-col col-3>
-                  <ion-card class="card1 icon5">
+                  <ion-card class="card1 icon5" (click)="gotoFarmaciasPage()">
                       <ion-card-content>
                          <!-- <ion-img class="transparente tamanho " src="./assets/imgs/destaque.png"></ion-img> -->
                       </ion-card-content>
+                      <div class="texto">Farmácias</div>
                     </ion-card>
               </ion-col>
               <ion-col col-3 offset-3>
@@ -62,9 +66,30 @@
                       <ion-card-content>
                          <!-- <ion-img class="transparente tamanho2 " src="./assets/imgs/super.png"></ion-img> -->
                       </ion-card-content>
+                      <div class="texto">Salões</div>
                     </ion-card>
               </ion-col>
             </ion-row>
           </ion-grid>
+          <ion-grid>
+              <ion-row>
+                <ion-col col-3>
+                    <ion-card class="card1 icon7">
+                        <ion-card-content>
+                           <!-- <ion-img class="transparente tamanho " src="./assets/imgs/destaque.png"></ion-img> -->
+                        </ion-card-content>
+                        <div class="texto">Vestuários</div>
+                      </ion-card>
+                </ion-col>
+                <ion-col col-3 offset-3>
+                  <ion-card class="card1 icon2">
+                      <ion-card-content>
+                         <!-- <ion-img class="transparente tamanho2 " src="./assets/imgs/super.png"></ion-img> -->
+                      </ion-card-content>
+                      <div class="textos">Supermercados</div>
+                    </ion-card>
+              </ion-col>
+              </ion-row>
+            </ion-grid>
 
 </ion-content>

@@ -17,10 +17,10 @@ export class MyApp {
 
     this.pages = [
       { titulo: 'Home', component: 'HomePage', icon: 'home'},
-      { titulo: 'Mapa', component: 'MapaPage', icon: 'pin'},
-      { titulo: 'Estabelecimentos', component: 'LojasPage', icon: 'pricetag'},
       { titulo: 'Ofertas', component: 'OfertasPage', icon: 'flame'},
-      { titulo: 'Contato', component: 'ContatoPage', icon: 'mail'}
+      { titulo: 'Estabelecimentos', component: 'LojasPage', icon: 'pricetag'},
+      { titulo: 'Mapa', component: 'MapaPage', icon: 'pin'},
+      { titulo: 'Contato', component: 'ContatoPage', icon: 'mail'},
 
     ]
 

@@ -48,8 +48,27 @@ export class HomePage {
     
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
+
+  gotoRestaurantesPage(){
+    this.navCtrl.push('RestaurantesPage');
+  }
+
+  gotoBaresPage(){
+    this.navCtrl.push('BaresPage');
+  }
+
+  gotoFarmaciasPage(){
+    this.navCtrl.push('FarmaciasPage');
+  }
+
+  gotoPostosPage(){
+    this.navCtrl.push('PostosPage');
+  }
+
+  
 
 }

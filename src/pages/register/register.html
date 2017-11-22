@@ -2,22 +2,28 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>Cadastre-se</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="fundobg">
+  <div class="topomenu"></div>
+
   <ion-item>
     <ion-label floating>Email</ion-label>
     <ion-input type="email" [(ngModel)]='user.email'></ion-input>
-</ion-item>
+  </ion-item>
 
-<ion-item>
+  <ion-item>
       <ion-label floating>Senha</ion-label>
       <ion-input type="password" [(ngModel)]='user.senha'></ion-input>
-</ion-item>  
+  </ion-item>  
+  
 
-<button ion-button (click)="registrar(use)">Registrar-se</button>
+<button ion-button block (click)="registrar(use)" class="botaor">Registrar-se</button>
 </ion-content>

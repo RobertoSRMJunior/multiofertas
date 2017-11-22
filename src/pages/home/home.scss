@@ -1,13 +1,28 @@
-$SIDEMENU_TOP: #c1272d;
-$SIDEMENU_BOTTOM: #75272d;
+$SIDEMENU_TOP: #b83a3a;
+$SIDEMENU_BOTTOM: #B22727;
 $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
+$SIDEMENU_TOPBG: rgb(241, 236, 236);
+$SIDEMENU_BOTTOMBG: rgb(241, 236, 236);
+$SIDEMENU_TRANSPARENCYBG: rgba(255,255,255,0.4);
+
+/*  BARRA TOPO*/
 .toolbar-background-md {
     background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
     background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
     background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
     background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
 }
+
+/*FUNDO BG*/
+.homebg{
+    background: -webkit-gradient(left top, $SIDEMENU_TOPBG, $SIDEMENU_BOTTOMBG);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOPBG, $SIDEMENU_BOTTOMBG);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOPBG, $SIDEMENU_BOTTOMBG);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOPBG, $SIDEMENU_BOTTOMBG);   
+}
+
+
 
 .toolbar-title-md{
     color: #ffffff;
@@ -30,7 +45,6 @@ ion-card{
     background-size: 45%;
     margin-bottom: 30px;   
 }
-
 
 
 .carrinho{
@@ -68,6 +82,14 @@ ion-card{
     background-image: url(../../assets/imgs/beauty.png);
 }
 
+.icon7{
+    background-image: url(../../assets/imgs/vestuario.png);
+}
+
+.icon8{
+    background-image: url(../../assets/imgs/postos.png);
+}
+
 .texto{
     margin-top: 75px;
     position: absolute;
@@ -76,6 +98,28 @@ ion-card{
     text-align: center;
     color: #B02020;
     font-size: 1.2em;
+   
+}
+
+.textos{
+    margin-top: 75px;
+    position: absolute;
+    width: 120px;
+    height: 20posx;
+    color: #B02020;
+    font-size: 1.2em;
+    margin-left: -10px;   
+ 
+}
+.textor{
+    margin-top: 75px;
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    color: #B02020;
+    font-size: 1.2em;
+    margin-left: 0px;   
+   
 }
 
 .conteudo{

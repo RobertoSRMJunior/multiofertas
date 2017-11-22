@@ -1,7 +1,7 @@
 // http://ionicframework.com/docs/theming/
 
-$SIDEMENU_TOP: #c1272d;
-$SIDEMENU_BOTTOM: #75272d;
+$SIDEMENU_TOP: #A32627;
+$SIDEMENU_BOTTOM: #B22727;
 $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
 
@@ -34,24 +34,20 @@ $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
         color: #ffffff;
     }
 
-    .home{
+    /*.home{
         background: linear-gradient(to bottom,  #eeeeee 0%, #eeeeee 100%);
-    }
+    }*/
 
     .transparente{
         background-color: transparent
     }
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+    .imgmenu{
+        margin-top: 20px;
+        margin-left: 85px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        width: 80px;
+        height: 100px;
+        }
+

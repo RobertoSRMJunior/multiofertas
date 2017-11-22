@@ -1,17 +1,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Faça seu Login</ion-title>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Bem-Vindo(a)</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class="home">
+<ion-content padding class="fundobg">
+    <img src="assets/imgs/menutopo.png" class="topomenu" alt="">
   
   <ion-item>
-    <ion-label stacked>Email</ion-label>
-    <ion-input type="email" [(ngModel)]='user.email'></ion-input>
+    <ion-label stacked class="corplace">Email</ion-label>
+    <ion-input color="danger" type="email" [(ngModel)]='user.email'></ion-input>
 </ion-item>
 
 <ion-item>
@@ -19,6 +23,6 @@
       <ion-input type="password" [(ngModel)]='user.senha'></ion-input>
 </ion-item>  
 
-<button ion-button (click)="logar(use)" color="dark">Logar</button>
-<button ion-button (click)="registrar()" color="danger">Registrar</button>
+<button ion-button block (click)="logar(use)" class="botaol textol">Logar</button>
+<button ion-button block (click)="registrar()" class="botao2">Registrar</button>
 </ion-content>
